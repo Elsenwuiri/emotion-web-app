@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="app-shell">
+        <section class="hero">
+            <div>
+                <p class="eyebrow">Real-time face analysis</p>
+                <h1>Emotion Recognition</h1>
+                <p class="subtitle">Live face detection with bounding boxes, confidence updates, and a clean monitoring panel.</p>
+            </div>
+            <div class="status-pill" id="status">Starting camera...</div>
+        </section>
+
+        <section class="dashboard">
+            <div class="video-card">
+                <div class="video-frame">
+                    <video id="video" autoplay muted></video>
+                    <canvas id="canvas"></canvas>
+                </div>
+            </div>
+
+            <aside class="result-card">
+                <p class="card-label">Live result</p>
+                <h2 id="emotion">Waiting...</h2>
+                <p class="confidence" id="confidence">Allow camera access to begin.</p>
+
+                <div class="metric-grid">
+                    <div class="metric">
+                        <span>Detection</span>
+                        <strong>Live emotion readout</strong>
+                    </div>
+                    <div class="metric">
+                        <span>Overlay</span>
+                        <strong>Face bounding box</strong>
+                    </div>
+                    <div class="metric">
+                        <span>Input</span>
+                        <strong>48 x 48 grayscale</strong>
+                    </div>
+                    <div class="metric">
+                        <span>Update</span>
+                        <strong>Every 700 ms</strong>
+                    </div>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
